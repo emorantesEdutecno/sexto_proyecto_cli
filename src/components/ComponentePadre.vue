@@ -10,7 +10,9 @@
                     />
                 </div>
                 <div class="col-md-3">
-                    <ComponentePagos />
+                    <ComponentePagos 
+                        v-bind:facturacionBebida="arregloProductosSeleccionados"
+                    />
                 </div>
             </div>
         </div>
@@ -74,9 +76,14 @@ export default{
     },
     methods:{
         procesarBebidaSeleccionada: function(indiceBebida){
-            console.log('indice de bebida recibida por el padre: ', indiceBebida);
-            this.arregloProductosSeleccionados.push(indiceBebida);
-            console.log(this.arregloProductosSeleccionados);
+            // console.log('indice de bebida recibida por el padre: ', indiceBebida);
+            let objetoIdentificadoBebida = this.datosCards[indiceBebida];
+            let objetoAEnviar = {
+                nombreBebidaEnviar: objetoIdentificadoBebida.tituloBebida,
+                costoBebidaEnviar: objetoIdentificadoBebida.costo,
+            };
+            this.arregloProductosSeleccionados.push(objetoAEnviar);
+            
         }
     }
 }

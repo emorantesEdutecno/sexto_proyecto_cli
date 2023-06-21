@@ -20,8 +20,8 @@
             </div>
 
 
-
-
+            <br>
+            <hr>
             <h4>Utilizacion de la maqueta estatica</h4>
             <div class="container">
                 <div class="row">
@@ -41,17 +41,17 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ informacionBebidas[1].tituloBebida }}</h5>
                                     <p class="card-text">{{  informacionBebidas[1].descripcionBebida }}</p>
-                                    <a href="#" class="btn btn-primary">Agregar</a>
+                                    <a href="#" class="btn btn-primary" v-on:click.prevent="agregarBebida(1)">Agregar</a>
                                 </div>
                             </div>
                     </div>
                     <div class="col-md-4">
                             <div class="card" style="width: 18rem;">
-                                <img src="https://lh3.googleusercontent.com/-gaBV0BnRBPU/Yz447FQ63-I/AAAAAAAAuYQ/37Bn-ZFZ-coy1VHz9XugLWHFRib-IOnUgCNcBGAsYHQ/w1200-h630-p-k-no-nu/Kimetsu-no-Yaiba.jpg" class="card-img-top" alt="...">
+                                <img v-bind:src="informacionBebidas[2].imagenBebida" class="card-img-top" v-bind:alt="informacionBebidas[2].tituloBebida">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">{{  informacionBebidas[2].tituloBebida }}</h5>
+                                    <p class="card-text">{{   informacionBebidas[2].descripcionBebida }}</p>
+                                    <a href="#" class="btn btn-primary" v-on:click.prevent="agregarBebida(2)">Agregar</a>
                                 </div>
                             </div>
                     </div>
@@ -59,31 +59,31 @@
                 <div class="row">
                     <div class="col-md-4">
                             <div class="card" style="width: 18rem;">
-                                <img src="https://lh3.googleusercontent.com/-gaBV0BnRBPU/Yz447FQ63-I/AAAAAAAAuYQ/37Bn-ZFZ-coy1VHz9XugLWHFRib-IOnUgCNcBGAsYHQ/w1200-h630-p-k-no-nu/Kimetsu-no-Yaiba.jpg" class="card-img-top" alt="...">
+                                <img v-bind:src="informacionBebidas[3].imagenBebida" class="card-img-top" v-bind:alt="informacionBebidas[3].tituloBebida">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">{{  informacionBebidas[3].tituloBebida }}</h5>
+                                    <p class="card-text">{{   informacionBebidas[3].descripcionBebida }}</p>
+                                    <a href="#" class="btn btn-primary" v-on:click.prevent="agregarBebida(3)">Agregar</a>
                                 </div>
                             </div>
                     </div>
                     <div class="col-md-4 bg-danger">
                             <div class="card" style="width: 18rem;">
-                                <img src="https://lh3.googleusercontent.com/-gaBV0BnRBPU/Yz447FQ63-I/AAAAAAAAuYQ/37Bn-ZFZ-coy1VHz9XugLWHFRib-IOnUgCNcBGAsYHQ/w1200-h630-p-k-no-nu/Kimetsu-no-Yaiba.jpg" class="card-img-top" alt="...">
+                                <img v-bind:src="informacionBebidas[4].imagenBebida" class="card-img-top" v-bind:alt="informacionBebidas[4].tituloBebida">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">{{  informacionBebidas[4].tituloBebida }}</h5>
+                                    <p class="card-text">{{   informacionBebidas[4].descripcionBebida }}</p>
+                                    <a href="#" class="btn btn-primary" v-on:click.prevent="agregarBebida(4)">Agregar</a>
                                 </div>
                             </div>
                     </div>
                     <div class="col-md-4">
                             <div class="card" style="width: 18rem;">
-                                <img src="https://lh3.googleusercontent.com/-gaBV0BnRBPU/Yz447FQ63-I/AAAAAAAAuYQ/37Bn-ZFZ-coy1VHz9XugLWHFRib-IOnUgCNcBGAsYHQ/w1200-h630-p-k-no-nu/Kimetsu-no-Yaiba.jpg" class="card-img-top" alt="...">
+                                <img v-bind:src="informacionBebidas[5].imagenBebida" class="card-img-top" v-bind:alt="informacionBebidas[5].tituloBebida">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">{{  informacionBebidas[5].tituloBebida }}</h5>
+                                    <p class="card-text">{{   informacionBebidas[5].descripcionBebida }}</p>
+                                    <a href="#" class="btn btn-primary" v-on:click.prevent="agregarBebida(5)">Agregar</a>
                                 </div>
                             </div>
                     </div>
@@ -109,7 +109,7 @@ export default{
     },
     methods:{
         agregarBebida: function(indice){
-            console.log('indice de la bebida seleccionada desde el hijo: ', indice);
+            // console.log('indice de la bebida seleccionada desde el hijo: ', indice);
             this.$emit('bebidaSeleccionada', indice);
         }
     }
@@ -118,6 +118,6 @@ export default{
 
 <style scoped>
 #ComponenteProductos{
-    background-color: aquamarine;
+    background-color:lightsalmon;
 }
 </style>
