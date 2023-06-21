@@ -12,6 +12,7 @@
                 <div class="col-md-3">
                     <ComponentePagos 
                         v-bind:facturacionBebida="arregloProductosSeleccionados"
+                        v-on:elementoAEliminar = "procesarElementoAEliminar"
                     />
                 </div>
             </div>
@@ -84,6 +85,9 @@ export default{
             };
             this.arregloProductosSeleccionados.push(objetoAEnviar);
             
+        },
+        procesarElementoAEliminar: function(indiceAEliminar){
+            this.arregloProductosSeleccionados.splice(indiceAEliminar,1);
         }
     }
 }

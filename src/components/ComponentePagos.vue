@@ -1,9 +1,13 @@
 <template>
     <div id="ComponentePagos">
         <h3>Componente Pagos</h3>
+        <p>Acumulado: {{ acumulado }}</p>
         <div v-for="(info, index) in facturacionBebida" v-bind:key="index" class="contenedorPagos">
             <div>
                 <p>{{  info.nombreBebidaEnviar }}</p> 
+            </div>
+            <div>
+                <button v-on:click.prevent="eliminarProducto(index)">Eliminar</button>
             </div>
             <div>
                 <p><strong>{{  info.costoBebidaEnviar }}</strong></p>
@@ -11,7 +15,7 @@
 
         </div>
 
-        <button v-on:click.prevent="calcularCosto"> Calcular total a Pagar</button>
+        <button v-on:click.prevent="calcularCosto" id="btnPagar"> Calcular total a Pagar</button>
         <div v-if="mostrar==true">
             <p>El subtotal es: {{  acumulado }}</p>
             <p>El iva es: {{  iva }}</p>
@@ -45,10 +49,22 @@ export default{
             }
             this.calcularIva();
             this.mostrar = true;
+            let elBotonPagar = document.getElementById('btnPagar');
+            elBotonPagar.disabled = true;
+
         },
         calcularIva:function(){
             this.iva = this.acumulado*19/100;
             this.valorFinalAPagar = this.acumulado + this.iva;
+        },
+        eliminarProducto: function(indice){
+            this.mostrar=false;
+            let elBotonPagar = document.getElementById('btnPagar');
+            elBotonPagar.disabled = false;
+            // reiniciamos a cero el acumulado porque en esta logica se recorre de nuevo el arreglo cuando se pulse el boton
+            this.acumulado = 0;
+            this.$emit('elementoAEliminar', indice);
+
         }
     }
 }
